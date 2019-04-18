@@ -1,0 +1,249 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="STM32F407_Eval" target="8" version="2">
+  <project Name="STM32F407_Eval">
+    <configuration
+      Name="Common"
+      Target="STM32F407VE"
+      arm_architecture="v7EM"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fp_abi="Hard"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_linker_allow_multiple_definition="No"
+      arm_linker_heap_size="256"
+      arm_linker_indirect_file="Yes"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="1024"
+      arm_target_device_name="STM32F407VE"
+      arm_target_interface_type="SWD"
+      batch_build_configurations="HID_Barcode_Debug;HID_Barcode_Release;HID_Keyboard_Debug;HID_Keyboard_Release"
+      build_intermediate_directory="Output/SES/$(ProjectName)_$(Configuration)/Obj"
+      build_output_directory="Output/SES/$(Configuration)/Exe"
+      c_additional_options="-Wall;-Wextra;-Wunused-variable;-Wuninitialized;-Wmissing-field-initializers;-Wundef;-ffunction-sections;-fdata-sections"
+      c_only_additional_options="-Wmissing-prototypes"
+      c_preprocessor_definitions="OS_VIEW_IFSELECT=OS_VIEW_DISABLED;STM32F407xx;USB_HOST=1;USE_RTT=1"
+      c_user_include_directories="BSP/Setup/CoreSupport;BSP/Setup;BSP/Setup/DeviceSupport;BSP/Setup/System;BSP/Setup/System/STM32F4xx_HAL_Driver/Inc;BSP/Setup/System/STM32F4xx_HAL_Driver/Inc/Legacy;USBH;Inc;FS;Config;SEGGER;GUI;IP;OS"
+      debug_register_definition_file="BSP/Setup/STM32F4x_Registers.xml"
+      debug_target_connection="J-Link"
+      debug_threads_script="OS/embOSPluginSES.js"
+      gcc_enable_all_warnings="Yes"
+      gcc_entry_point="Reset_Handler"
+      linker_memory_map_file="BSP/Setup/STM32F407VE_MemoryMap.xml"
+      linker_output_format="srec"
+      linker_section_placement_file="BSP/Setup/flash_placement.xml"
+      macros="Target=STM32F407VE"
+      project_directory=""
+      project_type="Executable" />
+    <folder Name="System Files">
+      <file file_name="BSP/Setup/flash_placement.xml" />
+      <file file_name="BSP/Setup/STM32F407VE_MemoryMap.xml" />
+    </folder>
+    <folder Name="Application">
+      <file file_name="Application/Main.c" />
+      <folder Name="FS_RO" />
+      <folder Name="IP" />
+      <folder Name="USBH">
+        <file file_name="Application/USBH_HID_Keyboard.c">
+          <configuration
+            Name="HID_Keyboard_Debug"
+            build_exclude_from_build="Yes" />
+          <configuration
+            Name="HID_Keyboard_Release"
+            build_exclude_from_build="Yes" />
+        </file>
+      </folder>
+    </folder>
+    <folder Name="BSP">
+      <folder Name="Setup">
+        <file file_name="BSP/Setup/BSP.c" />
+        <file file_name="BSP/Setup/BSP_USB.c" />
+        <folder Name="System">
+          <folder Name="STM32F4xx_HAL_Driver">
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_ltdc.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sdram.c" />
+            <file file_name="BSP/Setup/System/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fmc.c" />
+          </folder>
+        </folder>
+        <file file_name="Setup/USBH_Config_STM32F407_FS_myBoard.c" />
+        <file file_name="BSP/Setup/RTOSInit_STM32F4xx.c" />
+      </folder>
+      <folder Name="Setup_SES">
+        <file file_name="BSP/Setup/thumb_crt0.s" />
+        <file file_name="BSP/Setup/DeviceSupport/STM32F4xx_Startup.s" />
+        <file file_name="BSP/Setup/DeviceSupport/STM32F40x_Vectors.s" />
+        <file file_name="BSP/Setup/DeviceSupport/system_stm32f4xx.c" />
+      </folder>
+    </folder>
+    <folder Name="Config">
+      <file file_name="Config/USBH_ConfigIO.c" />
+    </folder>
+    <folder Name="FS">
+      <file file_name="FS/libFS_d.a">
+        <configuration
+          Name="HID_Barcode_Release"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="FS/libFS_r.a">
+        <configuration
+          Name="HID_Barcode_Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Debug"
+          build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="GUI">
+      <file file_name="GUI/libGUI_d.a">
+        <configuration
+          Name="HID_Barcode_Release"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="GUI/libGUI_r.a">
+        <configuration
+          Name="HID_Barcode_Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Debug"
+          build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="IP">
+      <file file_name="IP/libIP_d.a">
+        <configuration
+          Name="HID_Barcode_Release"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="IP/libIP_r.a">
+        <configuration
+          Name="HID_Barcode_Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Debug"
+          build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="OS">
+      <file file_name="OS/libOS_d.a">
+        <configuration
+          Name="HID_Barcode_Release"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="OS/libOS_r.a">
+        <configuration
+          Name="HID_Barcode_Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Debug"
+          build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="SEGGER">
+      <file file_name="SEGGER/SEGGER_RTT.c" />
+      <file file_name="SEGGER/SEGGER_snprintf.c" />
+    </folder>
+    <folder Name="USBH">
+      <file file_name="USBH/libUSBH_d.a">
+        <configuration
+          Name="HID_Barcode_Release"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="USBH/libUSBH_r.a">
+        <configuration
+          Name="HID_Barcode_Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="HID_Keyboard_Debug"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="USBH/gpio.c" />
+    </folder>
+    <configuration
+      Name="HID_Barcode_Debug"
+      arm_architecture="v7EM"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fp_abi="Hard"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_library_architecture="v7EM"
+      arm_library_optimization="Small"
+      arm_linker_heap_size="512"
+      arm_linker_process_stack_size="128"
+      arm_linker_stack_size="512"
+      arm_target_device_name="STM32F407VE"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="APP_NAME=&quot;Barcode scanner&quot;"
+      debug_register_definition_file="$(ProjectDir)/BSP/Setup/STM32F40x_Registers.xml"
+      debug_target_connection="J-Link"
+      link_use_linker_script_file="No"
+      linker_memory_map_file="$(ProjectDir)/BSP/Setup/STM32F407VE_MemoryMap.xml"
+      linker_section_placement_file="BSP/Setup/flash_placement.xml"
+      linker_section_placements_segments="" />
+    <configuration
+      Connection="USB 788594195"
+      Name="HID_Barcode_Release"
+      arm_architecture="v7EM"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fp_abi="Hard"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_linker_heap_size="1024"
+      arm_linker_stack_size="1024"
+      arm_simulator_memory_simulation_parameter="RX 08000000,00080000,FFFFFFFF;RWX 20000000,00020000,CDCDCDCD"
+      arm_target_device_name="STM32F407VE"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="APP_NAME=&quot;Barcode scanner&quot;"
+      debug_register_definition_file="$(ProjectDir)/BSP/Setup/STM32F40x_Registers.xml"
+      debug_target_connection="J-Link"
+      linker_section_placements_segments="FLASH RX 0x08000000 0x00080000;RAM RWX 0x20000000 0x00020000" />
+    <configuration
+      Name="HID_Keyboard_Debug"
+      c_preprocessor_definitions="APP_NAME=HID_Keyboard" />
+    <configuration
+      Name="HID_Keyboard_Release"
+      c_preprocessor_definitions="APP_NAME=HID_Keyboard" />
+  </project>
+  <configuration Name="HID_Barcode_Debug" inherited_configurations="Debug" />
+  <configuration
+    Name="HID_Barcode_Release"
+    inherited_configurations="Release" />
+  <configuration Name="HID_Keyboard_Debug" inherited_configurations="Debug" />
+  <configuration
+    Name="HID_Keyboard_Release"
+    inherited_configurations="Release" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 2"
+    gcc_optimization_level="Level 2"
+    hidden="Yes" />
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_optimization_level="None"
+    hidden="Yes" />
+</solution>
